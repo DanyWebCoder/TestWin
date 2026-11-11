@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Tab Stress Test</title>
+</head>
+<body>
+    <h1>Тест нагрузки вкладками</h1>
+    <p>Нажмите кнопку, чтобы начать открытие тестовых окон.</p>
+    <button id="startBtn">Запустить тест</button>
+
+    <script>
+        document.getElementById('startBtn').addEventListener('click', () => {
+            const targetCount = 50; 
+            
+            for (let i = 0; i < targetCount; i++) {
+                const win = window.open('about:blank', '_blank');
+                if (win) {
+                    win.document.write(`<h2>Вкладка №${i + 1}</h2><p>Нагрузочный тест активен.</p>`);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
